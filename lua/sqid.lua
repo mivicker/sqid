@@ -1,5 +1,6 @@
 local str_arm = require("sqid.str_arm")
 local web_arm = require("sqid.web_arm")
+local grabber_arm = require("sqid.grabber_arm")
 
 local sqid = {}
 
@@ -36,6 +37,13 @@ function sqid.web()
     local web_reply = web_arm.get_ugly_photography()
     print(web_reply)
 end
+
+function sqid.grabber_arm()
+    if not sqid.is_configured() then
+        return
+    end
+
+    local grabbed = grabber_arm.gr
 
 sqid.options = nil
 return sqid
