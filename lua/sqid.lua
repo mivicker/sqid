@@ -1,4 +1,5 @@
 local str_arm = require("sqid.str_arm")
+local web_arm = require("sqid.web_arm")
 
 local sqid = {}
 
@@ -25,6 +26,15 @@ function sqid.test()
 
     local greeting = str_arm.grab_line_under_cursor()
     print(greeting)
+end
+
+function sqid.web()
+    if not sqid.is_configured() then
+        return
+    end
+
+    local web_reply = web_arm.get_ugly_photography()
+    print(web_reply)
 end
 
 sqid.options = nil
