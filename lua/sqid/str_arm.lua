@@ -1,6 +1,6 @@
 local str_arm = {}
 
-function str_arm.greeting(name)
+function str_arm.greet(name)
     return "Hello " .. name
 end
 
