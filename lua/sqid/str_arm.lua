@@ -1,13 +1,7 @@
 local str_arm = {}
 
--- Get the cursor line
--- local pos = vim.api.nvim_win_get_cursor(0)
--- Grab the line text
--- vim.api.nvim_buf_get_lines(0, pos, pos + 1, true)
-
-function str_arm.greet()
+function str_arm.grab_line_under_cursor()
     local pos = vim.api.nvim_win_get_cursor(0)
-    print(vim.inspect(pos))
     local line = vim.api.nvim_buf_get_lines(0, pos[1] - 1, pos[1], true)
     return line[1]
 end

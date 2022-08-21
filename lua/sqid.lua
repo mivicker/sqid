@@ -23,7 +23,7 @@ function sqid.test()
         return
     end
 
-    local greeting = str_arm.greet()
+    local greeting = str_arm.grab_line_under_cursor()
     print(greeting)
 end
 
