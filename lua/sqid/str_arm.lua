@@ -6,8 +6,8 @@ local str_arm = {}
 -- vim.api.nvim_buf_get_lines(0, pos, pos + 1, true)
 
 function str_arm.greet()
-    local pos = vim.api.nvim_win_get_cursor(0)
-    local line = vim.api.nvim_buf_get_lines(0, pos, pos + 1, true)
+    local row, _ = vim.api.nvim_win_get_cursor(0)
+    local line = vim.api.nvim_buf_get_lines(0, row, row + 1, true)
     return "Hello " .. line
 end
 
