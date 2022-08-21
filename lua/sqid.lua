@@ -24,3 +24,6 @@ function sqid.test()
     local greeting = sqid.greeting(sqid.options.name)
     print(greeting)
 end
+
+sqid.options = nil
+return sqid
