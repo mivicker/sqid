@@ -1,9 +1,9 @@
-if exists('g:loaded_quid') | finish | endif
+if exists('g:loaded_sqid') | finish | endif
 
 let s:save_cpo = &cpo
 set cpo&vim
 
-command! Quid lua require"quid".quid()
+command! Sqid lua require"sqid".sqid()
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
