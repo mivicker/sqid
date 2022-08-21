@@ -34,7 +34,7 @@ function sqid.web()
         return
     end
 
-    local web_reply = web_arm.get_ugly_photography()
+    local web_reply = web_arm.search_wikidata("Karen Sparck Jones")
     print(web_reply)
 end
 
@@ -43,7 +43,9 @@ function sqid.grabber_arm()
         return
     end
 
-    local grabbed = grabber_arm.gr
+    local grabbed = grabber_arm.get_visual_selection()
+    print(grabbed)
+end
 
 sqid.options = nil
 return sqid
