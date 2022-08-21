@@ -23,7 +23,7 @@ function sqid.test()
         return
     end
 
-    local greeting = str_arm.greet(sqid.options.name)
+    local greeting = str_arm.greet()
     print(greeting)
 end
 
