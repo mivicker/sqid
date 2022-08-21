@@ -1,3 +1,5 @@
+local str_arm = require("sqid.str_arm")
+
 local sqid = {}
 
 local function with_defaults(options)
@@ -21,7 +23,7 @@ function sqid.test()
         return
     end
 
-    local greeting = sqid.greeting(sqid.options.name)
+    local greeting = str_arm.greet(sqid.options.name)
     print(greeting)
 end
 
