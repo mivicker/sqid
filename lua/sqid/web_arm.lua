@@ -18,7 +18,8 @@ end
 
 
 function web_arm.search_wikidata(search_string)
-    local last_param = "&search=" .. search_string
+    local subbed, _ = search_string:gsub(" ", "%%20")
+    local last_param = "&search=" .. subbed
     local url = base_url .. base_query_str .. last_param
     local result = curl.get(url)
     local search = vim.fn.json_decode(result["body"])
