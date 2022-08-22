@@ -34,21 +34,12 @@ function sqid.web()
         return
     end
 
-    local search_string = "Karen Sparck Jones"
+    local search_string = grabber_arm.get_visual_selection()
     local subbed, _ = search_string:gsub(" ", "%%20")
     print(subbed)
 
     local web_reply = web_arm.search_wikidata(subbed)
     print(web_reply)
-end
-
-function sqid.grabber_arm()
-    if not sqid.is_configured() then
-        return
-    end
-
-    local grabbed = grabber_arm.get_visual_selection()
-    print(grabbed)
 end
 
 sqid.options = nil
