@@ -4,16 +4,17 @@ local web_arm = {}
 local base_url = "https://www.wikidata.org/w/api.php"
 local base_query_str = "?action=wbsearchentities&format=json&language=en&type=item&continue=0&limit=3"
 
+local template = [[---
+qid: %s
+publish: false
+---
+
+# %s
+
+%s]]
 
 local function format_wikidata_obj(obj)
-    return [[---
-    qid: %s
-    publish: false
-    ---
-
-    # %s
-
-    %s]]:format(obj["id"], obj["label"], obj["description"])
+    return template:format(obj["id"], obj["label"], obj["description"])
 end
 
 function web_arm.search_wikidata(search_string)
