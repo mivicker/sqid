@@ -25,8 +25,8 @@ function sqid.web()
 
     local web_reply = web_arm.search_wikidata(grabber_arm.get_visual_selection())
 
-    print(vim.inspect(web_reply))
-    -- vim.api.nvim_put(web_reply, "l", false, true)
+    vim.inspect(web_reply)
+    vim.api.nvim_put(web_reply, "l", false, true)
 end
 
 sqid.options = nil
