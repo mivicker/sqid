@@ -38,7 +38,7 @@ function sqid.web()
     local subbed, _ = search_string:gsub(" ", "%%20")
 
     local web_reply = web_arm.search_wikidata(subbed)
-    print(web_reply)
+    vim.api.nvim_put(web_reply, "l", false, true)
 end
 
 sqid.options = nil
