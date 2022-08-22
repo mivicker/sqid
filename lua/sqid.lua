@@ -12,8 +12,6 @@ end
 
 function sqid.setup(options)
     sqid.options = with_defaults(options)
-
-    vim.api.nvim_create_user_command("SqidTest", sqid.test, {})
 end
 
 function sqid.is_configured()
@@ -25,9 +23,8 @@ function sqid.web()
         return
     end
 
-    local search_string = grabber_arm.get_visual_selection()
+    local web_reply = web_arm.search_wikidata(grabber_arm.get_visual_selection())
 
-    local web_reply = web_arm.search_wikidata(subbed)
     print(vim.inspect(web_reply))
     -- vim.api.nvim_put(web_reply, "l", false, true)
 end
