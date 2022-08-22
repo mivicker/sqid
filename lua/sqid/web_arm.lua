@@ -13,16 +13,18 @@ publish: false
 
 %s]]
 
+
 local function format_wikidata_obj(obj)
     return template:format(obj["id"], obj["label"], obj["description"])
 end
+
 
 function web_arm.search_wikidata(search_string)
     local last_param = "&search=" .. search_string
     local url = base_url .. base_query_str .. last_param
     local result = curl.get(url)
     local search = vim.fn.json_decode(result["body"])
-    print(vim.inspect(search["search"]))
+    print(vim.inspect(search["search"][0]))
     -- return format_wikidata_obj(search["search"][0])
 end
 
