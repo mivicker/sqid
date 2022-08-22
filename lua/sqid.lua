@@ -34,7 +34,11 @@ function sqid.web()
         return
     end
 
-    local web_reply = web_arm.search_wikidata("Karen Sparck Jones")
+    local search_string = "Karen Sparck Jones"
+
+    search_string = search_string:gsub(" ", "%20")
+
+    local web_reply = web_arm.search_wikidata(search_string)
     print(web_reply)
 end
 
