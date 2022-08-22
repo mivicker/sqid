@@ -35,11 +35,10 @@ function sqid.web()
     end
 
     local search_string = "Karen Sparck Jones"
+    local subbed = search_string:gsub(" ", "%20")
+    print(subbed)
 
-    search_string = search_string:gsub(" ", "%20")
-    print(search_string)
-
-    local web_reply = web_arm.search_wikidata(search_string)
+    local web_reply = web_arm.search_wikidata(subbed)
     print(web_reply)
 end
 
