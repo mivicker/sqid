@@ -23,7 +23,7 @@ function web_arm.search_wikidata(search_string)
     local url = base_url .. base_query_str .. last_param
     local result = curl.get(url)
     local search = vim.fn.json_decode(result["body"])
-    if not search then
+    if not search["search"] then
         return {"nothing found"}
     end
     return format_wikidata_obj(search["search"][1])
