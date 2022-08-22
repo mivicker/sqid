@@ -1,5 +1,4 @@
 local curl = require("plenary.curl")
-local json = require("plenary.json")
 local web_arm = {}
 
 local base_url = "https://www.wikidata.org/w/api.php"
@@ -9,7 +8,7 @@ function web_arm.search_wikidata(search_string)
     local last_param = "&search=" .. search_string
     local url = base_url .. base_query_str .. last_param
     local result = curl.get(url)
-    local obj = json.decode(result["body"])
+    local obj = vim.json.decode(result["body"])
     return vim.inspect(obj)
 end
 
