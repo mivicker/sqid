@@ -6,13 +6,13 @@ local base_query_str = "?action=wbsearchentities&format=json&language=en&type=it
 
 
 local function format_wikidata_obj(obj)
-    local template = {{"---"},
-        {string.format("qid: %s", obj["id"])},
-        {"publish: false"},
-        {"---"},
-        {""},
-        {string.format("# %s", obj["label"])},
-        {string.format("%s", obj["description"])}}
+    local template = {"---",
+        string.format("qid: %s", obj["id"]),
+        "publish: false",
+        "---",
+        "",
+        string.format("# %s", obj["label"]),
+        string.format("%s", obj["description"])}
     return template
 end
 
