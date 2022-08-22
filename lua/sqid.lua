@@ -36,7 +36,6 @@ function sqid.web()
 
     local search_string = grabber_arm.get_visual_selection()
     local subbed, _ = search_string:gsub(" ", "%%20")
-    print(subbed)
 
     local web_reply = web_arm.search_wikidata(subbed)
     print(web_reply)
