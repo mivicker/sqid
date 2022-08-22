@@ -7,13 +7,13 @@ local base_query_str = "?action=wbsearchentities&format=json&language=en&type=it
 
 local function format_wikidata_obj(obj)
     return [[---
-qid: %s
-publish: false
----
+    qid: %s
+    publish: false
+    ---
 
-# %s
+    # %s
 
-%s]]:format(obj["id"], obj["label"], obj["description"])
+    %s]]:format(obj["id"], obj["label"], obj["description"])
 end
 
 function web_arm.search_wikidata(search_string)
