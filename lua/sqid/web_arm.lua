@@ -22,7 +22,7 @@ function web_arm.search_wikidata(search_string)
     local url = base_url .. base_query_str .. last_param
     local result = curl.get(url)
     local search = vim.fn.json_decode(result["body"])
-    print(vim.inspect(search))
+    print(vim.inspect(search["search"]))
     -- return format_wikidata_obj(search["search"][0])
 end
 
