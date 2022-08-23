@@ -1,4 +1,5 @@
 local web_arm = require("sqid.web_arm")
+local str_arm = require("sqid.str_arm")
 local grabber_arm = require("sqid.grabber_arm")
 local file_arm = require("sqid.file_arm")
 
@@ -41,8 +42,9 @@ function sqid.web_to_file()
 
     local search_string = grabber_arm.get_visual_selection()
     local web_reply = web_arm.search_wikidata(search_string)
+    local long_string = str_arm.from_lines(web_reply)
 
-    file_arm.write_string_to_file(web_reply, search_string .. ".md")
+    file_arm.write_string_to_file(long_string, search_string .. ".md")
 end
 
 sqid.options = nil
