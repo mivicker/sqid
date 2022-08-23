@@ -1,5 +1,6 @@
-local with = require("plenary.context_manager.with")
-local open = require("plenary.context_manager.open")
+local context_manager = require("plenary.context_manager")
+local with = context_manager.with
+local open = context_manager.open
 
 local file_arm = {}
 
