@@ -2,6 +2,10 @@ local str_arm = require("sqid.str_arm")
 local web_arm = require("sqid.web_arm")
 local grabber_arm = require("sqid.grabber_arm")
 
+--TODO: Window like coq or other completion & select with tab
+--TODO: Print out to new file if it doesn't exist
+--TODO: Add brackets
+
 local sqid = {}
 
 local function with_defaults(options)
