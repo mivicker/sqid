@@ -2,9 +2,11 @@ local str_arm = require("sqid.str_arm")
 local web_arm = require("sqid.web_arm")
 local grabber_arm = require("sqid.grabber_arm")
 
---TODO: Window like coq or other completion & select with tab
+--TODO: Window like coq or other completion & select with tab from top 3
 --TODO: Print out to new file if it doesn't exist
---TODO: Add brackets
+--TODO: Create proper vim commands
+--TODO: Search and add filename
+--TODO: Add brackets command
 
 local sqid = {}
 
