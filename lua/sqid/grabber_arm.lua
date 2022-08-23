@@ -1,5 +1,6 @@
 local grabber_arm = {}
 
+
 function grabber_arm.get_visual_selection()
   local s_start = vim.fn.getpos("'<")
   local s_end = vim.fn.getpos("'>")

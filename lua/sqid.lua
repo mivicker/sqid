@@ -1,6 +1,6 @@
-local str_arm = require("sqid.str_arm")
 local web_arm = require("sqid.web_arm")
 local grabber_arm = require("sqid.grabber_arm")
+local file_arm = require("sqid.file_arm")
 
 --TODO: Window like coq or other completion & select with tab from top 3
 --TODO: Print out to new file if it doesn't exist
@@ -31,8 +31,18 @@ function sqid.web()
 
     local web_reply = web_arm.search_wikidata(grabber_arm.get_visual_selection())
 
-    vim.inspect(web_reply)
     vim.api.nvim_put(web_reply, "l", false, true)
+end
+
+function sqid.web_to_file()
+    if not sqid.is_configured() then
+        return
+    end
+
+    local search_string = grabber_arm.get_visual_selection()
+    local web_reply = web_arm.search_wikidata(search_string)
+
+    file_arm.write_string_to_file(web_reply, search_string .. ".md")
 end
 
 sqid.options = nil
