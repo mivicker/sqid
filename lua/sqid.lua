@@ -2,8 +2,10 @@ local web_arm = require("sqid.web_arm")
 local str_arm = require("sqid.str_arm")
 local grabber_arm = require("sqid.grabber_arm")
 local file_arm = require("sqid.file_arm")
+local feeler_arm = require("sqid.feeler_arm")
 
---TODO: Window like coq or other completion & select with tab from top 3
+
+--TODO: Pop-up window to select with <C-n> <C-p> from top 3-5
 --TODO: Print out to new file if it doesn't exist
 --TODO: Create proper vim commands
 --TODO: Search and add filename
@@ -45,6 +47,11 @@ function sqid.web_to_file()
     local long_string = str_arm.from_lines(web_reply)
 
     file_arm.write_string_to_file(long_string, search_string .. ".md")
+end
+
+
+function sqid.pop_window()
+    feeler_arm.open_window()
 end
 
 sqid.options = nil
