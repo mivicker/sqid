@@ -3,7 +3,7 @@ local buf, win
 
 local feeler_arm = {}
 
-function feeler_arm.open_window()
+function feeler_arm.open_window(content)
     buf = api.nvim_create_buf(false, true)
     local border_buf = api.nvim_create_buf(false, true)
 
@@ -48,6 +48,10 @@ function feeler_arm.open_window()
     table.insert(border_lines, "┗" .. string.rep("━", win_width) .. "┛")
 
     api.nvim_buf_set_lines(border_buf, 0, -1, false, border_lines)
+    if not content then
+        content = ""
+    end
+    api.nvim_buf_set_lines(buf, 0, -1, false, content)
 
     local border_win = api.nvim_open_win(border_buf, true, border_opts)
     win = api.nvim_open_win(buf, true, opts)
