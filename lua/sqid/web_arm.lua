@@ -41,7 +41,10 @@ end
 
 
 local function format_result_listing(result_listing)
-    return result_listing["label"] .. ": " .. result_listing["description"]
+    if result_listing["description"] == nil then
+        result_listing["description"] = ""
+    end
+    return result_listing["id"].." - " .. result_listing["label"] .. ": " .. result_listing["description"]
 end
 
 
