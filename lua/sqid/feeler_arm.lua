@@ -14,7 +14,7 @@ function feeler_arm.open_window(content)
     local height = api.nvim_get_option('lines')
 
     -- calc floating window size
-    local win_height = math.ceil(height * 0.8 - 4)
+    local win_height = #content + 1
     local win_width = math.ceil(width * 0.8)
 
     -- and its starting position
@@ -26,7 +26,7 @@ function feeler_arm.open_window(content)
         style = 'minimal',
         relative = 'editor',
         width = win_width + 2,
-        height = #content + 2,
+        height = win_height + 2,
         row = row - 1,
         col = col - 1,
     }
@@ -35,7 +35,7 @@ function feeler_arm.open_window(content)
         style = 'minimal',
         relative = 'editor',
         width = win_width,
-        height = #content,
+        height = win_height,
         row = row,
         col = col,
     }
