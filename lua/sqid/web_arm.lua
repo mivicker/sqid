@@ -17,7 +17,6 @@ local function format_wikidata_obj(obj)
 end
 
 
-
 local function format_nothing_found(search_string)
     local template = {"---",
         "publish: false",
@@ -45,19 +44,22 @@ local function format_result_listing(result_listing)
     return result_listing["label"] .. ": " .. result_listing["description"]
 end
 
+
 local function search_lines(lines)
     local result = {}
     for _, line in ipairs(lines) do
         table.insert(result, format_result_listing(line))
     end
+    print(result)
     return result
 end
 
 
 function web_arm.return_several(search_string)
-    local search = search_wikidata_all(search_string)
-    return search_lines(search)
+    local lines = search_wikidata_all(search_string)
+    return search_lines(lines)
 end
+
 
 function web_arm.search_wikidata(search_string)
     local search = search_wikidata_all(search_string)

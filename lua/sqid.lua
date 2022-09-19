@@ -51,7 +51,9 @@ end
 
 
 function sqid.pop_window()
-    feeler_arm.open_window()
+    local search_string = grabber_arm.get_visual_selection()
+    local content = web_arm.return_several(search_string)
+    feeler_arm.open_window(content)
 end
 
 sqid.options = nil
