@@ -26,7 +26,7 @@ function feeler_arm.open_window(content)
         style = 'minimal',
         relative = 'editor',
         width = win_width + 2,
-        height = win_height + 2,
+        height = #content + 2,
         row = row - 1,
         col = col - 1,
     }
@@ -35,7 +35,7 @@ function feeler_arm.open_window(content)
         style = 'minimal',
         relative = 'editor',
         width = win_width,
-        height = win_height,
+        height = #content,
         row = row,
         col = col,
     }
