@@ -47,7 +47,7 @@ function feeler_arm.open_window()
     end
     table.insert(border_lines, "◺" .. string.rep("⋯", win_width) .. "◿")
 
-    api.nvim_buf_set_lines(border_buf, 0, -1, border_lines)
+    api.nvim_buf_set_lines(border_buf, 0, -1, false, border_lines)
 
     local border_win = api.nvim_open_win(border_buf, true, border_opts)
     win = api.nvim_open_win(buf, true, opts)
