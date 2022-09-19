@@ -5,6 +5,7 @@ local feeler_arm = {}
 
 function feeler_arm.open_window()
     buf = api.nvim_create_buf(false, true)
+    local border_buf = api.nvim_create_buf(false, true)
 
     api.nvim_buf_set_option(buf, 'bufhidden', 'wipe')
 
@@ -21,6 +22,15 @@ function feeler_arm.open_window()
     local col = math.ceil((width - win_width) / 2)
 
     -- set some options
+    local border_opts = {
+        style = 'minimal',
+        relative = 'editor',
+        width = win_width + 2,
+        height = win_width + 2,
+        row = row - 1,
+        col = col - 1,
+    }
+
     local opts = {
         style = 'minimal',
         relative = 'editor',
@@ -30,7 +40,19 @@ function feeler_arm.open_window()
         col = col,
     }
 
+    local border_lines = {"◸" .. string.rep("⋯", win_width) .. "◹"}
+    local middle_line = "⁞" .. string.rep(" ", win_width) .. "⁞" 
+    for _=1, win_height do
+        table.insert(border_lines, middle_line)
+    end
+    table.insert(border_lines, "◺" .. string.rep("⋯", win_width) .. "◿")
+
+    api.nvim_buf_set_lines(border_buf, 0, -1, border_lines)
+
+    local border_win = api.nvim_open_win(border_buf, true, border_opts)
     win = api.nvim_open_win(buf, true, opts)
+
+    api.nvim_command('au BufWipeout <buffer> exe "silent bwipeout! "' .. border_buf)
 end
 
 return feeler_arm
