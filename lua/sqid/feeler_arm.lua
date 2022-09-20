@@ -32,13 +32,11 @@ function feeler_arm.open_window(content)
     }
 
     local opts = {
-        style = 'minimal',
         relative = 'editor',
         width = win_width,
         height = win_height,
         row = row,
         col = col,
-        wrap = true,
     }
 
     local border_lines = {"┌─ 🦑𐌔𐌒𐌉𐌃 ─" .. string.rep("─", win_width - 10) .. "┐"}
