@@ -40,7 +40,6 @@ function feeler_arm.open_window(content)
         col = col,
         wrap = true,
         linebreak = true,
-        nolist = true,
     }
 
     local border_lines = {"┌─ 🦑𐌔𐌒𐌉𐌃 ─" .. string.rep("─", win_width - 10) .. "┐"}
