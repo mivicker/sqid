@@ -39,7 +39,6 @@ function feeler_arm.open_window(content)
         row = row,
         col = col,
         wrap = true,
-        linebreak = true,
     }
 
     local border_lines = {"┌─ 🦑𐌔𐌒𐌉𐌃 ─" .. string.rep("─", win_width - 10) .. "┐"}
@@ -56,7 +55,7 @@ function feeler_arm.open_window(content)
     api.nvim_buf_set_lines(buf, 0, -1, false, content)
 
     local border_win = api.nvim_open_win(border_buf, true, border_opts)
-    win = api.nvim_open_win(buf, true, opts)
+    local win = api.nvim_open_win(buf, true, opts)
 
     api.nvim_command('au BufWipeout <buffer> exe "silent bwipeout! "' .. border_buf)
 end
