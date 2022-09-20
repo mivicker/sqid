@@ -40,7 +40,7 @@ function feeler_arm.open_window(content)
         col = col,
     }
 
-    local border_lines = {"┌─🦑𐌔𐌒𐌉𐌃" .. string.rep("─", win_width - 7) .. "┐"}
+    local border_lines = {"┌─ 🦑𐌔𐌒𐌉𐌃 ─" .. string.rep("─", win_width - 10) .. "┐"}
     local middle_line = "│" .. string.rep(" ", win_width) .. "│"
     for _=1, win_height do
         table.insert(border_lines, middle_line)
