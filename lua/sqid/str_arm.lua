@@ -27,6 +27,7 @@ local function trim(inputstr, max_width)
             table.insert(line, word)
         end
     end
+    table.insert(result, table.concat(line, " "))
     return result
 end
 
