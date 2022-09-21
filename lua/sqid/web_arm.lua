@@ -32,6 +32,9 @@ local function search_wikidata_all(search_string)
     local last_param = "&search=" .. subbed
     local url = base_url .. base_query_str .. last_param
     local result = curl.get(url)
+    if result == nil then
+        return {}
+    end
     local search = vim.fn.json_decode(result["body"])
     if not search["search"] then
         return format_nothing_found(search_string)

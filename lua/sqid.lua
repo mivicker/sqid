@@ -6,10 +6,10 @@ local feeler_arm = require("sqid.feeler_arm")
 
 
 --TODO: Pop-up window to select with <C-n> <C-p> from top 3-5
---TODO: Print out to new file if it doesn't exist
 --TODO: Create proper vim commands
 --TODO: Search and add filename
 --TODO: Add brackets command
+
 
 local sqid = {}
 
@@ -51,6 +51,9 @@ end
 
 
 function sqid.pop_window()
+    if not sqid.is_configured() then
+        return
+    end
     local search_string = grabber_arm.get_visual_selection()
     local content = web_arm.return_several(search_string)
     feeler_arm.open_window(content)

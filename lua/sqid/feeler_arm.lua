@@ -1,7 +1,9 @@
 local api = vim.api
 local buf, win
-
 local feeler_arm = {}
+
+local str_arm = require"sqid.str_arm"
+
 
 function feeler_arm.open_window(content)
     buf = api.nvim_create_buf(false, true)
@@ -51,7 +53,7 @@ function feeler_arm.open_window(content)
     if not content then
         content = ""
     end
-    api.nvim_buf_set_lines(buf, 0, -1, false, content)
+    api.nvim_buf_set_lines(buf, 0, -1, false, str_arm.wrap(content, win_width))
 
     local border_win = api.nvim_open_win(border_buf, true, border_opts)
     local win = api.nvim_open_win(buf, true, opts)
