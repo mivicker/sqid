@@ -6,6 +6,8 @@ local str_arm = require"sqid.str_arm"
 
 
 function feeler_arm.open_window(content)
+
+
     buf = api.nvim_create_buf(false, true)
     local border_buf = api.nvim_create_buf(false, true)
 
@@ -15,9 +17,14 @@ function feeler_arm.open_window(content)
     local width = api.nvim_get_option('columns')
     local height = api.nvim_get_option('lines')
 
-    -- calc floating window size
-    local win_height = #content + 1
+    -- calc floating window width
     local win_width = math.ceil(width * 0.8)
+
+    -- wrap content to width
+    local wrapped = str_arm.wrap(content, win_width)
+
+    -- set window height to match wrapped content
+    local win_height = #wrapped + 1
 
     -- and its starting position
     local row = math.ceil((height - win_height) / 2 - 1)
@@ -53,7 +60,7 @@ function feeler_arm.open_window(content)
     if not content then
         content = ""
     end
-    api.nvim_buf_set_lines(buf, 0, -1, false, str_arm.wrap(content, win_width))
+    api.nvim_buf_set_lines(buf, 0, -1, false, wrapped)
 
     local border_win = api.nvim_open_win(border_buf, true, border_opts)
     local win = api.nvim_open_win(buf, true, opts)
