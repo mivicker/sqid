@@ -18,7 +18,7 @@ local function trim(inputstr, max_width)
     local line = {}
     local line_length = 0
     for _, word in ipairs(str_arm.stringsplit(inputstr)) do
-        line_length = line_length + #word
+        line_length = line_length + #word + 1 -- add one for space
         if line_length > (max_width - 1) then
             table.insert(result, table.concat(line, " "))
             line = {}
