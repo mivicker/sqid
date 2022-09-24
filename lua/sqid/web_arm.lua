@@ -1,8 +1,22 @@
+local context_manager = require("plenary.context_manager")
 local curl = require("plenary.curl")
+local with = context_manager.with
+local open = context_manager.open
+
 local web_arm = {}
 
 local base_url = "https://www.wikidata.org/w/api.php"
 local base_query_str = "?action=wbsearchentities&format=json&language=en&type=item&continue=0&limit=3"
+
+local openai_url = "https://api.openai.com/v1/completions"
+-- keeping secrets in a json file for now.
+
+
+local apikey = with(open("~/.config/nvim/secrets.json"), function(reader)
+    local data = reader:read()
+    local tab = vim.api.json_decode(data)
+    return tab["openai_key"]
+end)
 
 
 local function format_wikidata_obj(obj)
