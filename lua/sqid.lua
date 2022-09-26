@@ -3,6 +3,7 @@ local str_arm = require("sqid.str_arm")
 local grabber_arm = require("sqid.grabber_arm")
 local file_arm = require("sqid.file_arm")
 local feeler_arm = require("sqid.feeler_arm")
+local inspect    = require("vim.inspect")
 
 
 --TODO: Pop-up window to select with <C-n> <C-p> from top 3-5
@@ -48,7 +49,7 @@ function sqid.askwayne()
 
     local search_string = grabber_arm.get_visual_selection()
     local response = web_arm.checkwayne(search_string)
-    print(response)
+    print(inspect(response))
 end
 
 
