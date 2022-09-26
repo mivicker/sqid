@@ -49,7 +49,7 @@ function sqid.askwayne()
 
     local search_string = grabber_arm.get_visual_selection()
     local response = web_arm.checkwayne(search_string)
-    print(inspect(response))
+    print(response["choices"][0]["text"])
 end
 
 
