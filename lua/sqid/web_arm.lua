@@ -1,5 +1,6 @@
 local context_manager = require("plenary.context_manager")
 local curl = require("plenary.curl")
+local inspect = require("vim.inspect")
 
 local web_arm = {}
 
@@ -43,7 +44,7 @@ function web_arm.testwayne()
         },
         body = body,
     })
-    print(describe(response))
+    print(inspect(response))
 end
 
 
