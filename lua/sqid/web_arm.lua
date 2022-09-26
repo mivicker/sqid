@@ -27,7 +27,7 @@ function web_arm.testwayne()
 
     local prompt = "Hello Wayne"
 
-    local body = {
+    local json = {
         model = "text-davinci-003",
         prompt = prompt,
         max_tokens = 30,
@@ -35,6 +35,8 @@ function web_arm.testwayne()
         temperature = 0.5,
         stream = false,
     }
+
+    local body = vim.fn.json_encode(json)
 
     local response = curl.post(openai_url, {
         headers = {
