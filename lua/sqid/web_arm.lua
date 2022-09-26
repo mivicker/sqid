@@ -38,7 +38,6 @@ function web_arm.checkwayne(content)
     }
 
     local body = vim.fn.json_encode(json)
-
     local response = curl.post(openai_url, {
         headers = {
             content_type = "application/json",
@@ -46,7 +45,7 @@ function web_arm.checkwayne(content)
         },
         body = body,
     })
-    print(inspect(response))
+    return response
 end
 
 
