@@ -8,7 +8,6 @@ local web_arm = {}
 local base_url = "https://www.wikidata.org/w/api.php"
 local base_query_str = "?action=wbsearchentities&format=json&language=en&type=item&continue=0&limit=3"
 
-local openai_url = "https://api.openai.com/v1/completions"
 -- keeping secrets in a json file for now.
 
 
@@ -17,6 +16,34 @@ local apikey = with(open("~/.config/nvim/secrets.json"), function(reader)
     local tab = vim.api.json_decode(data)
     return tab["openai_key"]
 end)
+
+
+function web_arm.testwayne()
+    local openai_url = "https://api.openai.com/v1/completions"
+
+
+    local prompt = "Hello Wayne"
+
+    local json = {
+        model = "text-davinci-003",
+        prompt = prompt,
+        max_tokens = 30,
+        n = 1,
+        temperature = 0.5,
+        stream = false,
+    }
+
+    local body = vim.fn.json_encode(json)
+
+    local response = curl.get(openai_url, {
+        headers = {
+            content_type = "application/json",
+            authorization = "Bearer "..apikey,
+        },
+        body = body,
+    })
+    print(describe(response))
+end
 
 
 local function format_wikidata_obj(obj)
