@@ -53,8 +53,9 @@ function sqid.askwayne()
         print("Request returned nothing...")
     end
     local body = vim.fn.json_decode(response["body"])
-    print(inspect(body))
-    --["choices"][0]["text"]
+    local content = body["choices"][1]["text"]
+    web_arm.open_window(content)
+
 end
 
 
