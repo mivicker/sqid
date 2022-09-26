@@ -26,7 +26,7 @@ function web_arm.testwayne()
 
     local prompt = "Hello Wayne"
 
-    local json = {
+    local body = {
         model = "text-davinci-003",
         prompt = prompt,
         max_tokens = 30,
@@ -35,8 +35,6 @@ function web_arm.testwayne()
         stream = false,
     }
 
-    local body = vim.fn.json_encode(json)
-
     local response = curl.get(openai_url, {
         headers = {
             content_type = "application/json",
@@ -44,7 +42,7 @@ function web_arm.testwayne()
         },
         body = body,
     })
-    print(inspect(response))
+    print(inspect(vim.fn.json_decode(response)))
 end
 
 
