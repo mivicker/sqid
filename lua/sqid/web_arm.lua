@@ -15,7 +15,9 @@ local function readAll(file)
     return content
 end
 
-local apikey = readAll("/home/michael/.config/nvim/secrets.json")["openai_key"]
+local secretsfile = readAll("/home/michael/.config/nvim/secrets.json")
+local secrets = vim.fn.json_decode(secretsfile)
+local apikey = secrets["openai_key"]
 
 function web_arm.testwayne()
     local openai_url = "https://api.openai.com/v1/completions"
