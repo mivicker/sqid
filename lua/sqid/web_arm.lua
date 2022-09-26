@@ -11,7 +11,7 @@ local base_query_str = "?action=wbsearchentities&format=json&language=en&type=it
 -- keeping secrets in a json file for now.
 
 
-local apikey = with(open("/home/michael/.config/nvim/secrets.json"), function(reader)
+local apikey = with(open("~/.config/nvim/secrets.json"), function(reader)
     local data = reader:read()
     local tab = vim.api.json_decode(data)
     return tab["openai_key"]
