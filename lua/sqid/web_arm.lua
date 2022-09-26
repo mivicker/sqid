@@ -24,14 +24,10 @@ local apikey = secrets["openai_key"]
 function web_arm.checkwayne(content)
     local openai_url = "https://api.openai.com/v1/completions"
 
-    local start = "Please summarize the following text."
-
-    local prompt = start.."\n"..content
-
     local json = {
         model = "text-davinci-002",
-        prompt = prompt,
-        max_tokens = 30,
+        prompt = content,
+        max_tokens = 120,
         n = 1,
         temperature = 0.5,
         stream = false,
