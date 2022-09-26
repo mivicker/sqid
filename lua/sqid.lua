@@ -49,7 +49,11 @@ function sqid.askwayne()
 
     local search_string = grabber_arm.get_visual_selection()
     local response = web_arm.checkwayne(search_string)
-    print(inspect(response))
+    if response == nil then
+        print("Request returned nothing...")
+    end
+    local body = vim.fn.json_decode(response["body"])
+    print(inspect(body))
     --["choices"][0]["text"]
 end
 
