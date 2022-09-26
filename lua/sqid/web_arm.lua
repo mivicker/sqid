@@ -1,7 +1,5 @@
 local context_manager = require("plenary.context_manager")
 local curl = require("plenary.curl")
-local with = context_manager.with
-local open = context_manager.open
 
 local web_arm = {}
 
@@ -10,14 +8,14 @@ local base_query_str = "?action=wbsearchentities&format=json&language=en&type=it
 
 -- keeping secrets in a json file for now.
 
+local function readAll(file)
+    local f = assert(io.open(file, "rb"))
+    local content = f:read("*a")
+    f:close()
+    return content
+end
 
-local apikey = with(open("secrets.json"), function(reader)
-
-    local data = reader:read()
-    local tab = vim.api.json_decode(data)
-    return tab["openai_key"]
-end)
-
+local apikey = readAll("secrets.json")
 
 function web_arm.testwayne()
     local openai_url = "https://api.openai.com/v1/completions"
