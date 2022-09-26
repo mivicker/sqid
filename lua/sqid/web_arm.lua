@@ -21,7 +21,7 @@ local secrets = vim.fn.json_decode(secretsfile)
 local apikey = secrets["openai_key"]
 
 
-function web_arm.testwayne(content)
+function web_arm.checkwayne(content)
     local openai_url = "https://api.openai.com/v1/completions"
 
     local start = "Please summarize the following text."
