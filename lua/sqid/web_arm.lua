@@ -44,7 +44,7 @@ function web_arm.testwayne()
         },
         body = body,
     })
-    print(inspect(vim.fn.json_decode(response)))
+    print(response)
 end
 
 
