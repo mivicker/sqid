@@ -1,4 +1,3 @@
-local context_manager = require("plenary.context_manager")
 local curl = require("plenary.curl")
 local inspect = require("vim.inspect")
 
