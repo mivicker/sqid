@@ -44,7 +44,7 @@ function web_arm.testwayne()
         },
         body = body,
     })
-    print(response)
+    print(inspect(response))
 end
 
 
