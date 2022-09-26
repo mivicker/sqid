@@ -27,7 +27,7 @@ function web_arm.testwayne()
     local prompt = "Hello Wayne"
 
     local json = {
-        model = "text-davinci-003",
+        model = "text-davinci-002",
         prompt = prompt,
         max_tokens = 30,
         n = 1,
