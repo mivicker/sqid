@@ -54,7 +54,7 @@ function sqid.askwayne()
     end
     local body = vim.fn.json_decode(response["body"])
     local content = body["choices"][1]["text"]
-    web_arm.open_window(content)
+    feeler_arm.open_window({ content })
 
 end
 
