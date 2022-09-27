@@ -4,7 +4,6 @@ local feeler_arm = {}
 
 local str_arm = require"sqid.str_arm"
 
-
 function feeler_arm.open_window(content)
     buf = api.nvim_create_buf(false, true)
     local border_buf = api.nvim_create_buf(false, true)
