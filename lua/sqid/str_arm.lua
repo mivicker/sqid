@@ -22,7 +22,7 @@ local function trim(inputstr, max_width)
         if line_length > (max_width - 1) then
             table.insert(result, table.concat(line, " "))
             line = {}
-            line_length = 0
+            line_length = #word
             table.insert(line, word)
         else
             table.insert(line, word)
