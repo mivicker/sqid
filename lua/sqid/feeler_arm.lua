@@ -47,11 +47,11 @@ function feeler_arm.open_window(content)
     }
 
     local border_lines = {"┌─ 🦑𐌔𐌒𐌉𐌃 ─" .. string.rep("─", win_width - 9) .. "┐"}
-    local middle_line = "│" .. string.rep(" ", win_width + 2) .. "│"
+    local middle_line = "│" .. string.rep(" ", win_width + 1) .. "│"
     for _=1, win_height do
         table.insert(border_lines, middle_line)
     end
-    table.insert(border_lines, "└" .. string.rep("─", win_width + 2) .. "┘")
+    table.insert(border_lines, "└" .. string.rep("─", win_width + 1) .. "┘")
 
     api.nvim_buf_set_lines(border_buf, 0, -1, false, border_lines)
     if not content then
