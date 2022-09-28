@@ -18,7 +18,7 @@ function feeler_arm.open_window(content)
     local win_width = math.ceil(width * 0.8)
 
     -- wrap content to width
-    local wrapped = str_arm.wrap(content, win_width)
+    local wrapped = str_arm.wrap(content, win_width - 2)
 
     -- set window height to match wrapped content
     local win_height = #wrapped + 1
@@ -31,10 +31,10 @@ function feeler_arm.open_window(content)
     local border_opts = {
         style = 'minimal',
         relative = 'editor',
-        width = win_width + 2,
+        width = win_width + 3,
         height = win_height + 2,
         row = row - 1,
-        col = col - 1,
+        col = col - 2,
     }
 
     local opts = {
