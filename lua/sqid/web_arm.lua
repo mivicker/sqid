@@ -48,10 +48,11 @@ function web_arm.checkwayne(content)
 end
 
 function web_arm.checkoed(word)
-    local oedbase = "https://od-api.oxforddictionaries.com/api/v2/entries/"
-    local language = "EN-US" --make this configurable eventually.
+    local oedbase = "https://od-api.oxforddictionaries.com/api/v2/"
+    local language = "en-us/" --make this configurable eventually.
+    local entries = "entries/" --also make this configurable
 
-    local oedurl = oedbase .. language .. word:lower()
+    local oedurl = oedbase .. entries .. language .. "/" .. word:lower()
 
     local response = curl.get(oedurl, {
         headers = {
