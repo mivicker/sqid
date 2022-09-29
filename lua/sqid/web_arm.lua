@@ -48,7 +48,7 @@ function web_arm.checkwayne(content)
 end
 
 function web_arm.checkoed(word)
-    local oedbase = "https://od-api.oxforddictionaries.com/api/v2/"
+    local oedbase = "https://od-api.oxforddictionaries.com:443/api/v2/"
     local language = "en-us/" --make this configurable eventually.
     local entries = "entries/" --also make this configurable
 
