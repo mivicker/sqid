@@ -52,6 +52,8 @@ function web_arm.checkoed(word)
     local language = "en-us/" --make this configurable eventually.
     local entries = "entries/" --also make this configurable
 
+    print(word)
+
     local oedurl = oedbase .. entries .. language .. "/" .. word:lower()
 
     local response = curl.get(oedurl, {
