@@ -57,7 +57,7 @@ function sqid.askwayne()
     feeler_arm.open_window({ content })
 end
 
-function sqid.lookupwordinoed()
+function sqid.lookupinoed()
     local word = grabber_arm.get_visual_selection()
     local response = web_arm.checkoed(word)
     local content = vim.fn.json_decode(response["body"])
