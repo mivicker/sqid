@@ -55,10 +55,11 @@ function web_arm.checkoed(word)
 
     local response = curl.get(oedurl, {
         headers = {
-           "app_id" = oedid,
-           "app_key" = oedkey,
+           app_id = oedid,
+           app_key = oedkey,
         }
     })
+    return response
 end
 
 local function format_wikidata_obj(obj)
