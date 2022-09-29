@@ -55,9 +55,14 @@ function sqid.askwayne()
     local body = vim.fn.json_decode(response["body"])
     local content = body["choices"][1]["text"]
     feeler_arm.open_window({ content })
-
 end
 
+function sqid.lookupwordinoed()
+    local word = grabber_arm.get_visual_selection()
+    local response = web_arm.checkoed(word)
+    local content = vim.fn.json_decode(response["body"])
+    print(inspect(content))
+end
 
 function sqid.web_to_file()
     if not sqid.is_configured() then

@@ -20,6 +20,9 @@ local secretsfile = readAll("/home/michael/.config/nvim/secrets.json")
 local secrets = vim.fn.json_decode(secretsfile)
 local apikey = secrets["openai_key"]
 
+local oedid = secrets["oed_id"]
+local oedkey = secrets["oed_key"]
+
 
 function web_arm.checkwayne(content)
     local openai_url = "https://api.openai.com/v1/completions"
@@ -44,6 +47,19 @@ function web_arm.checkwayne(content)
     return response
 end
 
+function web_arm.checkoed(word)
+    local oedbase = "https://od-api.oxforddictionaries.com:443/api/v2/entries/"
+    local language = "EN-US" --make this configurable eventually.
+
+    local oedurl = oedbase .. language .. word:lower()
+
+    local response = curl.get(oedurl, {
+        headers = {
+           "app_id" = oedid,
+           "app_key" = oedkey,
+        }
+    })
+end
 
 local function format_wikidata_obj(obj)
     local template = {"---",
