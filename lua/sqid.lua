@@ -61,7 +61,7 @@ function sqid.lookupinoed()
     local word = grabber_arm.get_visual_selection()
     local response = web_arm.checkoed(word)
     local content = vim.fn.json_decode(response["body"])
-    print(inspect(content))
+    print(inspect(content["results"]))
 end
 
 function sqid.web_to_file()

@@ -28,7 +28,7 @@ function web_arm.checkwayne(content)
     local openai_url = "https://api.openai.com/v1/completions"
 
     local json = {
-        model = "text-davinci-002",
+        model = "text-davinci-003",
         prompt = content,
         max_tokens = 350,
         n = 1,
@@ -49,10 +49,8 @@ end
 
 function web_arm.checkoed(word)
     local oedbase = "https://od-api.oxforddictionaries.com:443/api/v2/"
-    local language = "en-us" --make this configurable eventually.
     local entries = "entries" --also make this configurable
-
-    print(word)
+    local language = "en-us" --make this configurable eventually.
 
     local oedurl = oedbase .. entries .. "/" .. language .. "/" .. word:lower()
 
